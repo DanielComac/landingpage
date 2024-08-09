@@ -1,0 +1,75 @@
+.horario {
+    display: flex;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.horario-content {
+    flex: 1;
+    text-align: left;
+    margin-right: 19px; 
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-right: 5%;
+}
+
+.contact-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.calendar-day {
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+}
+
+.calendar-time {
+    display: contents;
+}
+
+.calendar-time div {
+    padding: 10px;
+    background-color: #e0e0e0;
+}
+
+.calendar-time div:nth-child(-n+5) {
+    background-color: #bbb9ae; 
+}
+
+.calendar-time div:nth-child(6) {
+    background-color: #bbb9ae;
+}
