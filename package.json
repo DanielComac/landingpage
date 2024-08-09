@@ -2,6 +2,7 @@
   "name": "landingpage",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://danielcomac.github.io/landingpage",
   "type": "module",
   "scripts": {
     "dev": "vite",
