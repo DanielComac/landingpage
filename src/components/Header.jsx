@@ -11,7 +11,7 @@ const Header = () => {
       <nav>
         <ul>
           <li><a href="#about">Acerca de nosotros</a></li>
-          <li><a href="#courses">Instrumentos</a></li>
+          <li><a href="#courses">Cursos</a></li>
           <li><a href="#gallery">Galería</a></li>
           <li><a href="#contact">Contáctanos</a></li>
         </ul>

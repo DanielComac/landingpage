@@ -1,12 +1,16 @@
 import React from 'react';
 import './Gallery.css';
 
+import imagen1 from '../assets/imagen1.jpg';
+import imagen3 from '../assets/imagen3.jpg';
+import imagen2 from '../assets/imagen2.jpg';
+
 const images = [
-  '/src/assets/imagen1.jpg', 
-  '/src/assets/imagen3.jpg', 
+  imagen1, 
+  imagen2, 
   'https://via.placeholder.com/400x300', 
   'https://via.placeholder.com/600x300', 
-  '/src/assets/imagen2.jpg',
+  imagen3,
   'https://via.placeholder.com/700x400', 
 ];
 

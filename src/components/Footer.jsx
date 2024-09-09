@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>&copy; 2024 Music School. All rights reserved.</p>
+      <p>&copy; 2024 Clases de Música La Corchea.</p>
     </footer>
   );
 };

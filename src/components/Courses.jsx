@@ -11,7 +11,7 @@ const Courses = () => {
     <section id="courses" className="courses">
       <div className="courses-container">
         <div className="courses-text">
-          <h2>Nuestros instrumentos</h2>
+          <h2>Nuestros cursos</h2>
           <p className='texto-cursos'>Ofrecemos clases personalizadas en una amplia variedad de disciplinas musicales, nuestros cursos están diseñados para adaptarse a todos los niveles, desde principiantes hasta avanzados.</p>
           <div className="courses-icons">
             <div className="icon-item">

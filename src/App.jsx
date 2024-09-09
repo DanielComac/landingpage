@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Gallery from './components/Gallery';
 import Horario from './components/Horario';
+import Beneficios from './components/Beneficios';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <About />
       <Courses />
+      <Beneficios />
       <Horario />
       <Gallery />
       <Contact />

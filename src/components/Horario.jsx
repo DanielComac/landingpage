@@ -28,7 +28,7 @@ const Horario = () => {
             <div>2:00pm - 3:00pm</div>
             <div>2:00pm - 3:00pm</div>
             <div></div>
-            <div></div>
+            <div>12:00pm - 2:00pm</div>
           </div>
         </div>
         <div className="calendar-body">
@@ -38,7 +38,7 @@ const Horario = () => {
             <div>5:00pm - 7:00pm</div>
             <div>5:00pm - 7:00pm</div>
             <div>5:00pm - 7:00pm</div>
-            <div>12:00pm - 2:00pm</div>
+            <div></div>
           </div>
         </div>
       </div>
