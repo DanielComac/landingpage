@@ -1,10 +1,12 @@
+/* Estilos para el header general */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; 
+  padding: 10px 20px;
   background-color: #fff;
   color: #000;
+  position: relative;
 }
 
 .header .logo img {
@@ -32,4 +34,50 @@
   text-decoration: none;
   font-weight: bolder;
   font-size: 19px;
+}
+
+/* Ocultar el menú de navegación y mostrar el menú hamburguesa en móviles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle div {
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Hacer el menú hamburguesa visible en pantallas pequeñas */
+@media (max-width: 768px) {
+  .header nav ul {
+    display: none; /* Ocultar la barra de navegación */
+  }
+
+  .menu-toggle {
+    display: flex; /* Mostrar el botón de hamburguesa */
+  }
+
+  .header nav.active ul {
+    display: block;
+    position: absolute;
+    top: 70px; /* Debajo del header */
+    right: 0;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .header nav.active ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .header nav.active ul li a {
+    font-size: 18px;
+  }
 }

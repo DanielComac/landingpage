@@ -3,19 +3,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; /* Permitir que el contenido se envuelva */
 }
 
 .about-content {
   display: flex;
   align-items: center;
-  width: 100%;
-  margin-top: 5%;
   justify-content: space-between;
-  margin-left: 5%;
+  width: 100%;
+  flex-wrap: wrap; /* Para que se envuelva en pantallas pequeñas */
+  margin: 5% auto;
 }
 
 .about-text {
   max-width: 45%;
+  margin-bottom: 20px;
 }
 
 .about-text h2 {
@@ -49,10 +51,61 @@
 }
 
 .about-image img {
-  max-width: 100%; 
-  height: 80%;
+  max-width: 100%;
+  height: auto; /* Permitir que la imagen mantenga sus proporciones */
 }
 
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .about {
+    padding: 20px;
+  }
+
+  .about-content {
+    flex-direction: column; /* Colocar el contenido en columna */
+    align-items: center; /* Centrar los elementos en pantallas pequeñas */
+  }
+
+  .about-text {
+    max-width: 100%; /* Asegurar que el texto ocupe todo el ancho */
+    text-align: center; /* Centrar el texto */
+  }
+
+  .about-text h2 {
+    font-size: 38px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+  }
+
+  .about-image {
+    max-width: 100%;
+    margin-right: 0; /* Eliminar margen en pantallas pequeñas */
+    margin-bottom: 20px; /* Agregar espacio entre la imagen y el texto */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text h2 {
+    font-size: 30px; /* Fuente más pequeña para pantallas muy pequeñas */
+  }
+
+  .about-text p {
+    font-size: 16px; /* Reducir el tamaño del texto */
+  }
+
+  .about-text button {
+    font-size: 14px; /* Botón más pequeño en pantallas pequeñas */
+    padding: 8px 16px;
+  }
+
+  .about-image img {
+    height: auto; /* Ajustar altura para pantallas muy pequeñas */
+  }
+}
+
+/* Estilos para la ventana modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -68,13 +121,14 @@
 
 .modal-content {
   background: white;
-  padding: 15px 30px 15px;
+  padding: 20px;
   border-radius: 10px;
-  width: 80%;
+  width: 90%;
   max-width: 600px;
   position: relative;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .modal-close {
@@ -88,15 +142,38 @@
   color: #181818;
 }
 
-.modal-text {
-  margin-bottom: 1px;
-}
-
 .modal-text h3 {
-  font-size: 23px;
-  margin-bottom: 1px;
+  font-size: 22px;
 }
 
 .modal-text p {
   font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%; /* Ensanchar modal en pantallas medianas */
+  }
+
+  .modal-text h3 {
+    font-size: 20px;
+  }
+
+  .modal-text p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 100%; /* Modal de ancho completo en pantallas pequeñas */
+  }
+
+  .modal-text h3 {
+    font-size: 18px;
+  }
+
+  .modal-text p {
+    font-size: 12px;
+  }
 }
