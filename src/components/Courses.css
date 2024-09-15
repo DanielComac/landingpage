@@ -19,8 +19,8 @@
   margin-bottom: 1%;
 }
 
-.texto-cursos{
-  margin-bottom: 5%;
+.texto-cursos {
+  margin-bottom: 15%;
   color: black;
 }
 
@@ -58,17 +58,34 @@
   font-size: 16px;
 }
 
+/* Ajustes responsivos */
 @media (max-width: 768px) {
-  .courses {
+  .courses-container {
     padding: 20px;
   }
 
-  .courses-container {
-    width: 100%;
+  .courses-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos iconos por fila */
+    justify-content: center;
+    gap: 20px;
   }
 
-  .courses-icons {
-    flex-direction: column;
-    align-items: center;
+  /* Centrar el quinto icono en una fila debajo */
+  .icon-item:nth-child(5) {
+    grid-column: span 2;
+    justify-self: center;
+  }
+}
+
+/* Opcional para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .icon-circle {
+    width: 60px;  /* Ajustar el tamaño de los iconos */
+    height: 60px;
+  }
+
+  .icon-item p {
+    font-size: 14px;  /* Texto más pequeño en móviles */
   }
 }
