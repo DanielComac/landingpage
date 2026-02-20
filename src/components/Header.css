@@ -3,26 +3,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #000;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Agregado para mejor visualización */
-  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+  padding: 15px 40px;
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente oscuro para contraste */
+  color: #fff; /* Texto blanco por defecto para contraste con Hero oscuro */
+  position: fixed; /* Fixed para que siempre esté visible */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px); /* Blur ligero para mejorar legibilidad */
+  -webkit-backdrop-filter: blur(5px); /* Soporte Safari */
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.header.scrolled {
+  padding: 10px 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  background-color: rgba(255, 255, 255, 0.7); /* Más transparente */
+  color: #000; /* Texto negro al hacer scroll */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .header .logo {
-  flex: 1; /* Ocupa espacio disponible */
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .header .logo img {
-  height: 60px;
-  /* Eliminado margin-left: 30% para mejor alineación */
+  height: 50px;
   display: block;
+  transition: height 0.3s ease;
+  /* Filtro opcional para invertir logo si es negro y necesitamos blanco, 
+     o asumiendo que el logo funciona en ambos o se cambia */
+  filter: brightness(0) invert(1); /* Logo blanco inicial */
 }
 
-.header nav {
-  /* margin-right: 5%; Eliminado para usar flexbox */
+.header.scrolled .logo img {
+  height: 40px;
+  filter: none; /* Logo original (negro/color) al scroll */
 }
 
 .header nav ul {
@@ -30,79 +52,149 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 20px; /* Espaciado moderno entre items */
-}
-
-.header nav ul li {
-  margin: 0; /* Controlado por gap */
+  gap: 30px;
 }
 
 .header nav ul li a {
-  color: #000;
+  color: inherit; /* Heredar color del header (blanco -> negro) */
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem; /* Usar rem para escalabilidad */
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 5px;
   transition: color 0.3s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Sombra ligera para mejorar lectura sobre fondo variable */
 }
 
-.header nav ul li a:hover {
-  color: #646cff; /* Color de hover consistente */
+.header.scrolled nav ul li a {
+  text-shadow: none;
 }
 
-/* Ocultar el menú de navegación y mostrar el menú hamburguesa en móviles */
+.header nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #646cff; /* Color acento */
+  transition: width 0.3s ease;
+}
+
+/* Ajuste de hover para estado inicial (texto blanco) */
+.header:not(.scrolled) nav ul li a:hover {
+  color: #ddd; /* Blanco un poco más oscuro o acento claro */
+}
+.header:not(.scrolled) nav ul li a::after {
+  background-color: #fff; /* Subrayado blanco */
+}
+
+.header.scrolled nav ul li a:hover::after {
+  width: 100%;
+  background-color: #646cff;
+}
+
+.header.scrolled nav ul li a:hover {
+  color: #646cff;
+}
+
+
+/* Menu Toggle */
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  z-index: 1001; /* Por encima del menú desplegable */
+  z-index: 1002;
+  gap: 5px;
 }
 
 .menu-toggle div {
   width: 25px;
   height: 3px;
-  background-color: #000;
-  margin: 4px 0;
-  transition: 0.4s;
+  background-color: #fff; /* Blanco inicial */
+  transition: all 0.3s ease;
   border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Sombra para visibilidad */
 }
 
-/* Hacer el menú hamburguesa visible en pantallas pequeñas */
+.header.scrolled .menu-toggle div {
+  background-color: #1a1a1a; /* Negro al scroll */
+  box-shadow: none;
+}
+
+/* Animación del menú hamburguesa */
+.menu-toggle.open .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.open .bar2 {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .header {
-    padding: 10px 15px;
+    padding: 15px 20px;
+    /* En móvil, quizás queramos fondo siempre visible o manejarlo igual */
+    /* Vamos a mantener la lógica transparente -> solido */
+  }
+  
+  .header.scrolled {
+    padding: 10px 20px;
+  }
+
+  .header nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco solido para menú móvil siempre */
+    color: #000; /* Texto siempre negro en menú móvil */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    z-index: 1001;
+  }
+
+  .header nav ul li a {
+    color: #1a1a1a; /* Forzar negro en menú móvil */
+    text-shadow: none;
+  }
+
+  .header nav.active {
+    right: 0;
   }
 
   .header nav ul {
-    display: none;
     flex-direction: column;
-    position: absolute;
-    top: 100%; /* Justo debajo del header */
-    left: 0;
-    right: 0;
-    background-color: #fff;
+    gap: 30px;
+    text-align: center;
     width: 100%;
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    gap: 15px;
-    align-items: center;
+  }
+  
+  .header nav.active ul {
+    display: flex;
   }
 
-  .header nav.active ul {
-    display: flex; /* Mostrar como flex column */
+  .header nav ul li a {
+    font-size: 1.2rem;
   }
 
   .menu-toggle {
     display: flex;
   }
   
-  /* Animación opcional para el menú hamburguesa */
-  .menu-toggle.open .bar1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  .menu-toggle.open .bar2 {
-    opacity: 0;
-  }
-  .menu-toggle.open .bar3 {
-    transform: rotate(45deg) translate(-5px, -6px);
+  /* Asegurar que el toggle sea visible sobre el menú blanco cuando está abierto */
+  .header .menu-toggle.open div {
+    background-color: #1a1a1a;
   }
 }

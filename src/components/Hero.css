@@ -1,56 +1,75 @@
 /* Estilos para la sección Hero */
 .hero {
+  position: relative;
+  height: 90vh; /* Más inmersivo */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75vh;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  position: relative;
-  padding: 20px;
-  /* box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3); Eliminado para evitar doble overlay */
+  overflow: hidden;
+  margin-top: 0; /* Reset */
 }
 
-.hero h1 {
-  font-size: 3rem; /* Usar rem */
-  margin-bottom: 20px;
-  z-index: 1;
-  color: #fff; /* Mejor blanco puro para contraste */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para legibilidad */
-  max-width: 90%;
-}
-
-.hero p {
-  font-size: 1.5rem;
-  z-index: 1;
-  color: #f0f0f0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  max-width: 90%;
-}
-
-.hero::before {
-  content: '';
+.hero-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Oscurecido un poco más para legibilidad */
-  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  /* Efecto de zoom suave al cargar */
+  animation: zoomIn 20s infinite alternate;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(26,26,26,0.5) 100%);
+  z-index: -1;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  font-size: 1.8rem;
+  color: #f0f0f0;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .hero {
-    height: 60vh; /* Ajustado para móviles */
-    padding: 15px;
+    height: 70vh;
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .hero p {
@@ -60,14 +79,10 @@
 
 @media (max-width: 480px) {
   .hero {
-    height: 50vh;
+    height: 60vh;
   }
 
   .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 }

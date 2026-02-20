@@ -1,13 +1,16 @@
 .horario {
   display: flex;
-  padding: 40px;
+  padding: 80px 40px;
   justify-content: space-between;
-  align-items: flex-start; /* Alinear arriba */
-  margin-top: 40px;
+  align-items: flex-start; 
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 40px;
+  margin: 0 auto;
+  gap: 60px;
+  background-color: #fafafa;
+  border-radius: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.05);
 }
 
 .horario-content {
@@ -16,57 +19,69 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 25px;
+  font-weight: 800;
+  color: #222;
 }
 
 .description {
   font-size: 1.125rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #555;
 }
 
 .contact-link {
-  color: #007bff;
+  color: #646cff;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
 }
 
 .contact-link:hover {
-  text-decoration: underline;
+  border-bottom-color: #646cff;
+}
+
+.calendar-wrapper {
+  flex: 2;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  background: white;
 }
 
 .calendar {
   display: flex;
   flex-direction: column;
-  flex: 2;
   width: 100%;
-  overflow-x: auto; /* Permitir scroll horizontal si es necesario */
+  overflow-x: auto; 
 }
 
 .calendar-header {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   text-align: center;
-  font-weight: bold;
-  margin-bottom: 10px;
-  min-width: 600px; /* Asegurar ancho mínimo para legibilidad */
+  font-weight: 700;
+  min-width: 600px; 
+  background-color: #1a1a1a;
+  color: white;
 }
 
 .calendar-day {
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-right: 1px solid #ddd;
-}
-.calendar-day:last-child {
-  border-right: none;
+  padding: 15px 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .calendar-body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   text-align: center;
-  min-width: 600px; /* Coincidir con header */
+  min-width: 600px; 
 }
 
 .calendar-time {
@@ -74,52 +89,57 @@
 }
 
 .calendar-time div {
-  padding: 15px 5px;
-  background-color: #e0e0e0;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  padding: 20px 5px;
+  background-color: white;
+  border-right: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #555;
+  transition: background-color 0.2s;
+}
+
+.calendar-time div:hover {
+  background-color: #f9f9f9;
 }
 
 .calendar-time div:last-child {
   border-right: none;
 }
 
-/* Colores alternados o específicos según el diseño original */
+/* Colores alternados suaves */
 .calendar-time div:nth-child(-n+5) {
-  background-color: #d1d1d1; 
+  background-color: #f8f9fa;
+  font-weight: 500;
+  color: #333;
+}
+.calendar-time div:nth-child(-n+5):hover {
+  background-color: #e9ecef;
 }
 
 /* Estilos responsivos */
 @media (max-width: 900px) {
   .horario {
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 40px 20px;
     align-items: center;
+    gap: 40px;
   }
 
   .horario-content {
     width: 100%;
     text-align: center;
-    margin-bottom: 30px;
-    margin-right: 0;
   }
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
   .description {
     font-size: 1rem;
-  }
-  
-  /* El calendario tendrá scroll horizontal en móviles */
-  .calendar {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Indicar que es un contenedor */
   }
 }

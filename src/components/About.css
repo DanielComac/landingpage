@@ -1,9 +1,7 @@
 .about {
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centrado */
-  flex-wrap: wrap; 
+  padding: 80px 20px;
+  background-color: #ffffff;
+  overflow: hidden;
 }
 
 .about-content {
@@ -11,138 +9,174 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px; /* Ancho máximo para pantallas grandes */
-  flex-wrap: wrap; 
+  max-width: 1200px;
   margin: 0 auto;
+  gap: 50px;
 }
 
 .about-text {
-  flex: 1 1 400px; /* Flex-grow, Flex-shrink, Flex-basis */
-  padding-right: 40px;
-  margin-bottom: 20px;
+  flex: 1;
 }
 
 .about-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--secondary-color, #646cff);
+  border-radius: 2px;
 }
 
 .about-text p {
   font-size: 1.125rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.about-text button {
-  background-color: #181818;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-.about-text button:hover {
-  background-color: #535353;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #555;
 }
 
 .about-image {
-  flex: 1 1 400px;
-  text-align: center; 
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .about-image img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px; /* Opcional: bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: block;
 }
 
-/* Estilos responsivos */
-@media (max-width: 900px) {
-  .about-content {
-    flex-direction: column-reverse; /* Imagen arriba en tablet/móvil si se prefiere, o normal */
-    /* Dejémoslo normal por ahora, o column para apilar */
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-text {
-    padding-right: 0;
-    padding-top: 20px;
-  }
-  
-  .about-image {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about {
-    padding: 20px;
-  }
-
-  .about-text h2 {
-    font-size: 2rem;
-  }
-
-  .about-text p {
-    font-size: 1rem;
-  }
-}
-
-/* Estilos para la ventana modal */
+/* Modal Styling */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Más oscuro */
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000; /* Mayor z-index */
+  z-index: 2000;
   padding: 20px;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background: white;
-  padding: 30px;
-  border-radius: 12px;
+  padding: 40px;
+  border-radius: 16px;
   width: 100%;
-  max-width: 600px;
-  max-height: 90vh; /* Scroll si es muy alto */
-  overflow-y: auto;
+  max-width: 700px;
+  max-height: 85vh;
   position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  color: #333;
+}
+
+.modal-scroll-area {
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .modal-close {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: none;
+  background: #f0f0f0;
   border: none;
-  font-size: 24px;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  color: #181818;
-  padding: 5px;
+  transition: all 0.2s;
+  z-index: 10;
+  color: #333;
+}
+
+.modal-close:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+.modal-text {
+  margin-bottom: 30px;
+}
+
+.modal-text:last-child {
+  margin-bottom: 0;
 }
 
 .modal-text h3 {
-  font-size: 1.4rem;
-  margin-top: 15px;
+  font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #181818;
+  color: #1a1a1a;
+  border-left: 4px solid var(--secondary-color, #646cff);
+  padding-left: 10px;
 }
 
 .modal-text p {
   font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .image-wrapper {
+    transform: rotate(0);
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 50px 20px;
+  }
+  
+  .about-text h2 {
+    font-size: 2.2rem;
+  }
+  
+  .modal-content {
+    padding: 25px;
+  }
 }

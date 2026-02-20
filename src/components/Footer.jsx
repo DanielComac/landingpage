@@ -4,7 +4,11 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>&copy; 2024 Clases de Música La Corchea.</p>
+      <div className="footer-content">
+        <p>&copy; {new Date().getFullYear()} Clases de Música La Corchea. Todos los derechos reservados.</p>
+        <div className="footer-line"></div>
+        <p className="footer-small">Diseñado con ❤️ para la música</p>
+      </div>
     </footer>
   );
 };
