@@ -28,14 +28,14 @@ const Beneficios = () => {
           </div>
 
           <div className="beneficio-card">
-            < img src={maestros} alt="About Us" className='beneficio-image' />
+            <img src={maestros} alt="About Us" className='beneficio-image' />
             <h3>Maestros capacitados</h3>
             <p>Maestros con una amplia experiencia y formación profesional de más de 15 años.</p>
           </div>
 
           <div className="beneficio-card">
-          < img src={ubicacion} alt="About Us" className='beneficio-image' />
-          <h3>Excelente ubicación</h3>
+            <img src={ubicacion} alt="About Us" className='beneficio-image' />
+            <h3>Excelente ubicación</h3>
             <p>Estamos ubicados en una excelente ubicación céntrica y accesible. Lo que facilita a nuestros estudiantes llegar cómodamente desde cualquier parte de la ciudad.</p>
           </div>
 

@@ -38,17 +38,15 @@ const Courses = () => {
                 <MdOutlineQueueMusic size={30} />
               </div>
               <p>Solfeo</p>
-
             </div>
-          </div><br></br>
-          <div className="icon-item">
+            <div className="icon-item">
               <div className="icon-circle">
                 <GiFlute size={30} />
               </div>
               <p>Pequeños</p>
-              <p>instrumentos musicales</p>
-
+              <p>instrumentos</p>
             </div>
+          </div>
         </div>
       </div>
     </section>

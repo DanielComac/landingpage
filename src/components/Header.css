@@ -7,15 +7,22 @@
   background-color: #fff;
   color: #000;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Agregado para mejor visualización */
+  z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+.header .logo {
+  flex: 1; /* Ocupa espacio disponible */
 }
 
 .header .logo img {
   height: 60px;
-  margin-left: 30%;
+  /* Eliminado margin-left: 30% para mejor alineación */
+  display: block;
 }
 
 .header nav {
-  margin-right: 5%;
+  /* margin-right: 5%; Eliminado para usar flexbox */
 }
 
 .header nav ul {
@@ -23,17 +30,23 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 20px; /* Espaciado moderno entre items */
 }
 
 .header nav ul li {
-  margin-left: 20px;
+  margin: 0; /* Controlado por gap */
 }
 
 .header nav ul li a {
   color: #000;
   text-decoration: none;
-  font-weight: bolder;
-  font-size: 19px;
+  font-weight: 700;
+  font-size: 1rem; /* Usar rem para escalabilidad */
+  transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+  color: #646cff; /* Color de hover consistente */
 }
 
 /* Ocultar el menú de navegación y mostrar el menú hamburguesa en móviles */
@@ -41,43 +54,55 @@
   display: none;
   flex-direction: column;
   cursor: pointer;
+  z-index: 1001; /* Por encima del menú desplegable */
 }
 
 .menu-toggle div {
-  width: 30px;
+  width: 25px;
   height: 3px;
   background-color: #000;
-  margin: 5px 0;
+  margin: 4px 0;
   transition: 0.4s;
+  border-radius: 2px;
 }
 
 /* Hacer el menú hamburguesa visible en pantallas pequeñas */
 @media (max-width: 768px) {
+  .header {
+    padding: 10px 15px;
+  }
+
   .header nav ul {
-    display: none; /* Ocultar la barra de navegación */
-  }
-
-  .menu-toggle {
-    display: flex; /* Mostrar el botón de hamburguesa */
-  }
-
-  .header nav.active ul {
-    display: block;
+    display: none;
+    flex-direction: column;
     position: absolute;
-    top: 70px; /* Debajo del header */
+    top: 100%; /* Justo debajo del header */
+    left: 0;
     right: 0;
     background-color: #fff;
     width: 100%;
-    padding: 10px;
+    padding: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    align-items: center;
   }
 
-  .header nav.active ul li {
-    margin: 10px 0;
-    text-align: center;
+  .header nav.active ul {
+    display: flex; /* Mostrar como flex column */
   }
 
-  .header nav.active ul li a {
-    font-size: 18px;
+  .menu-toggle {
+    display: flex;
+  }
+  
+  /* Animación opcional para el menú hamburguesa */
+  .menu-toggle.open .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .menu-toggle.open .bar2 {
+    opacity: 0;
+  }
+  .menu-toggle.open .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
   }
 }

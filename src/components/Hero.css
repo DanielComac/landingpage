@@ -4,29 +4,31 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75vh; /* Incrementar altura general */
+  height: 75vh;
   background-size: cover;
-  background-position: center; /* Ajuste para que la imagen siempre esté centrada */
+  background-position: center;
   color: white;
   text-align: center;
   position: relative;
   padding: 20px;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3); /* Overlay oscuro */
+  /* box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3); Eliminado para evitar doble overlay */
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 3rem; /* Usar rem */
   margin-bottom: 20px;
   z-index: 1;
-  color: #a5a5a5;
-  max-width: 100%; /* Ajuste del tamaño máximo del texto */
+  color: #fff; /* Mejor blanco puro para contraste */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+  max-width: 90%;
 }
 
 .hero p {
-  font-size: 24px;
+  font-size: 1.5rem;
   z-index: 1;
-  color: #b8b8b8;
-  max-width: 90%; /* Ajuste del tamaño máximo del texto */
+  color: #f0f0f0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  max-width: 90%;
 }
 
 .hero::before {
@@ -36,37 +38,36 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3); 
+  background: rgba(0, 0, 0, 0.5); /* Oscurecido un poco más para legibilidad */
   z-index: 0;
 }
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .hero {
-    height: 75vh; /* Aumentar la altura en pantallas medianas */
+    height: 60vh; /* Ajustado para móviles */
     padding: 15px;
   }
 
   .hero h1 {
-    font-size: 36px; /* Ajustar el tamaño de la fuente en pantallas medianas */
+    font-size: 2.2rem;
   }
 
   .hero p {
-    font-size: 20px; /* Ajustar el tamaño de la fuente en pantallas medianas */
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    height: 65vh; /* Aumentar la altura en pantallas pequeñas */
-    padding: 15px;
+    height: 50vh;
   }
 
   .hero h1 {
-    font-size: 32px; /* Fuente un poco más grande en pantallas pequeñas */
+    font-size: 1.8rem;
   }
 
   .hero p {
-    font-size: 18px; /* Fuente ajustada en pantallas pequeñas */
+    font-size: 1rem;
   }
 }
